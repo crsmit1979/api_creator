@@ -1,0 +1,45 @@
+.url {
+    padding:5px;
+}
+.url a, .url a:visited {
+    text-decoration:none;
+    color:black;
+}
+.endpoint {
+    border: 1px solid black;
+    margin:10px;
+}
+.title {
+    font-weight:bold;
+}
+.method {
+    text-transform:capitalize;
+    border:1px solid red;
+    display:inline-block;
+    font-weight:bold;
+    width:70px;
+    text-align:center;
+}
+.endpoint_detail {
+    //display:none;
+    background-color: lightgray;
+    padding: 20px;
+}
+.put {
+    background-color: #f7d2f7;
+}
+.delete {
+    background-color: #a9e4bb;
+}
+.post {
+    background-color: #d9d5ff;
+}
+.get {
+    background-color: #ececc4;
+}
+textarea {
+    width:100%;
+}
+table {
+    width:100%;
+}

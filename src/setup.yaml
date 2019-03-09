@@ -1,0 +1,59 @@
+setup:
+    host: 127.0.0.1
+    port: 5000
+models:
+  user: &user
+    id:
+      type: int
+      fake: number
+    name:
+      type: string
+      required: true
+      fake: name
+    email:
+      type: string
+      required: true
+      fake: email
+
+endpoints:
+  "/users":
+      get: 
+        description: Will get a list of users       
+        model:
+          name: user
+          schema: *user
+      post:
+        description: Add a new user
+        model:
+          name: user
+          schema: *user
+  "/users/:id":
+      get:
+        description: Get a user by id
+        params:
+          - name: id
+            type: int
+            required: true
+        model:
+          name: user
+          schema: *user
+      put:
+        description: Update a user detiails
+        params:
+            - name: id
+              type: int
+              required: true
+        model:
+          name: user
+          schema: *user
+
+      delete:
+        description: delete a user
+        params:
+            - name: id
+              type: int
+              required: true
+        model:
+          name: user
+          schema: *user
+            
