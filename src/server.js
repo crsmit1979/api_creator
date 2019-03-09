@@ -1,3 +1,4 @@
+let path = require("path");
 let util = require("util");
 let express = require("express");
 let bodyParser = require("body-parser");
@@ -6,12 +7,11 @@ let fs = require("fs");
 let _ = require("underscore");
 let low = require("lowdb");
 let FileSync = require("lowdb/adapters/FileSync");
-let adapter = new FileSync("db.json");
+let adapter = new FileSync(path.join(__dirname,"db.json"));
 let db = low(adapter);
 let Logger = require("./logger")
 let DBHelper = require("./dbhelper");
 let MethodHelper = require("./methodhelper");
-let path = require("path");
 let app = express();
 app.use(bodyParser.json());
 app.use("/public", express.static('public'))
@@ -22,7 +22,7 @@ const METHOD_GET = "get";
 const METHOD_DELETE = "delete"
 
 
-const data = yaml.load(fs.readFileSync("setup.yaml"));
+const data = yaml.load(fs.readFileSync(path.join(__dirname,"setup.yaml")));
 
 
 let setupDatabase = () => {
@@ -192,10 +192,11 @@ app.get("/config", function(req,res){
     res.json(result);
 })
 
-app.get("/api", function(req,res){
+app.get("/", function(req,res){
     res.sendFile(path.join(__dirname,"/views/base.html"));
 })
 
 app.listen(data.setup.port,data.setup.host, () => {
-    console.log(util.format("Server running on %s:%s", data.setup.host, data.setup.port));
+    let msg = util.format("Server running on http://%s:%s. \nLoad in browser to play with the Api tester" , data.setup.host, data.setup.port);
+    console.log(msg);
 })
