@@ -31,17 +31,12 @@ models:
   user: &user
     id:
       type: int
-      fake: number
     name:
       type: string
       required: true
-      fake: name
     email:
       type: string
       required: true
-      fake: email
-    _config:
-        fake_records: 2
 
 endpoints:
   "/users":
