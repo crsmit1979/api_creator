@@ -1,4 +1,4 @@
-#Api Endpoint Simulator
+# Api Endpoint Simulator
 ---
 This little tool is a node js app that uses express to build a rest api service for you that will
 quickly create a little test REST api for you.
@@ -12,7 +12,7 @@ What we use:
 - YAML configurations
 
 ---
-##How to build your custom api endpoints
+## How to build your custom api endpoints
 All you need to do is to create a yaml file where you define the endpoints and models and it will automatically build 
 all the endpoints for you.
 
@@ -22,7 +22,7 @@ all the endpoints for you.
 - Use something like postman and try and call the rest api endpoints.
 - There is a UI for the frontend and the address to view your endpoints and test them through the browser is: [http://localhost:5000/api] (http://localhost:5000/api)
 ---
-##Example of yaml configuration file
+## Example of yaml configuration file
  ```yaml
  setup:
     host: 127.0.0.1
